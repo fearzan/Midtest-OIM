@@ -1,12 +1,12 @@
 require 'telegram/bot'
 
-token = '762408536:AAEDZc_Cybn_q7JaT0PyrUx2AsuvewoNlRQ'
+token = '858695718:AAFsGsTVXLs-b22UJFTLz13LhyElWvrFs8I'
 
 Telegram::Bot::Client.run(token) do |bot|
   bot.listen do |message|
     case message.text
     when '/start'
-      question = 'Hai, selamat datang di kalorimasakini, kalian bisa mendapatkan informasi kalori yang ada pada setiap makanan kalian, untuk segera mendapatkan infromasi silahkan pilih kategori makanan atau buah'
+      question = 'Hai, selamat datang di Sehatku, kalian bisa mendapatkan informasi kalori yang ada pada setiap makanan kalian, untuk segera mendapatkan infromasi silahkan pilih kategori makanan atau buah'
                   
       answers =
         Telegram::Bot::Types::ReplyKeyboardMarkup
