@@ -44,7 +44,7 @@ Telegram::Bot::Client.run(token) do |bot|
       bot.api.send_message(chat_id: message.chat.id, text: "Ubi mempunyai kalori sebanyak 168 Kalori")
     
     #buah
-    when 'apel'
+    when 'apel' 'Apel'
       bot.api.send_message(chat_id: message.chat.id, text: "Apel mempunyai kalori sebanyak 92 Kalori")
     when 'alpukat'
       bot.api.send_message(chat_id: message.chat.id, text: "Alpukat mempunyai kalori sebanyak 85 Kalori")
