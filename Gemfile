@@ -2,8 +2,8 @@
 
 source "https://rubygems.org"
 
-git_source(:github) {|uts-semalam| "https://github.com/fearzan/uts-semalam" }
+ruby '1.9.3'
 
-gem 'telegram-bot-ruby'
 
 # gem "rails"
+gem 'telegram-bot-ruby'
