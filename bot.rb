@@ -5,20 +5,27 @@ token = '762408536:AAEDZc_Cybn_q7JaT0PyrUx2AsuvewoNlRQ'
 Telegram::Bot::Client.run(token) do |bot|
   bot.listen do |message|
     case message.text
-    when '/start'
-      question = 'Hai, selamat datang di kalorimasakini, kalian bisa mendapatkan informasi kalori yang ada pada setiap makanan kalian. untuk segera mendapatkan infromasi silahkan pilih kategori makanan atau buah'
+    when 'start'
+      question = 'Hai, selamat datang di kalorimasakini'
+                 'kalian bisa mendapatkan informasi kalori yang ada pada setiap makanan kalian.' 
+                 'untuk segera mendapatkan infromasi silahkan pilih kategori makanan atau buah'
       answers =
         Telegram::Bot::Types::ReplyKeyboardMarkup
-        .new(keyboard: [%w( Makanan_Pokok Buah), %w( Tentang_Kalori Bantuan )], one_time_keyboard: true)
+        .new(keyboard: [%w( Makanan Buah), %w( Info Bantuan )], one_time_keyboard: true)
       bot.api.send_message(chat_id: message.chat.id, text: question, reply_markup: answers)
-    when 'Makanan_Pokok'
+    
+    when 'MakananPokok'
       bot.api.send_message(chat_id: message.chat.id,text: "ketikan makanan pokok untuk mengetahui jumlah kalori misal 'jagung' ")
     
     when 'Buah'
       bot.api.send_message(chat_id: message.chat.id,text: "ketikan nama buah untuk mengetahui jumlah kalori misal 'Apel' ")
     
-    when 'Tentang_Kalori'
-      bot.api.send_message(chat_id: message.chat.id, text: "ini info makanan")
+    when 'Info'
+      question = 'Berikut info mengenai hal-hal tentang gizi, diet, kalori'
+      answers =
+        Telegram::Bot::Types::ReplyKeyboardMarkup
+        .new(keyboard: [%w( Gizi Diet), %w( Kalori)], one_time_keyboard: true)
+        bot.api.send_message(chat_id: message.chat.id, text: question, reply_markup: answers)
     
     when 'Bantuan'
       bot.api.send_message(chat_id: message.chat.id, text: "ini bantuan")
@@ -44,7 +51,7 @@ Telegram::Bot::Client.run(token) do |bot|
       bot.api.send_message(chat_id: message.chat.id, text: "Ubi mempunyai kalori sebanyak 168 Kalori")
     
     #buah
-    when 'apel' 'Apel'
+    when 'apel'
       bot.api.send_message(chat_id: message.chat.id, text: "Apel mempunyai kalori sebanyak 92 Kalori")
     when 'alpukat'
       bot.api.send_message(chat_id: message.chat.id, text: "Alpukat mempunyai kalori sebanyak 85 Kalori")
