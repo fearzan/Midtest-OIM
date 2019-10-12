@@ -6,7 +6,7 @@ Telegram::Bot::Client.run(token) do |bot|
   bot.listen do |message|
     case message.text
     when '/start'
-      question = 'Hai, selamat datang di Sehatku, kalian bisa mendapatkan informasi kalori yang ada pada setiap makanan kalian, untuk segera mendapatkan infromasi silahkan pilih kategori makanan atau buah'
+      question = 'Hai, selamat datang di Kalorimasakini, kalian bisa mendapatkan informasi kalori yang ada pada setiap makanan kalian, untuk segera mendapatkan infromasi silahkan pilih kategori makanan atau buah'
                   
       answers =
         Telegram::Bot::Types::ReplyKeyboardMarkup
