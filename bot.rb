@@ -5,7 +5,7 @@ token = '762408536:AAEDZc_Cybn_q7JaT0PyrUx2AsuvewoNlRQ'
 Telegram::Bot::Client.run(token) do |bot|
   bot.listen do |message|
     case message.text
-    when 'start'
+    when '/start'
       question = 'Hai, selamat datang di kalorimasakini, kalian bisa mendapatkan informasi kalori yang ada pada setiap makanan kalian, untuk segera mendapatkan infromasi silahkan pilih kategori makanan atau buah'
                   
       answers =
