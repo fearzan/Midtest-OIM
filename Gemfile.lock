@@ -32,8 +32,5 @@ PLATFORMS
 DEPENDENCIES
   telegram-bot-ruby
 
-RUBY VERSION
-   ruby 2.3.7p456
-
 BUNDLED WITH
    2.0.2
