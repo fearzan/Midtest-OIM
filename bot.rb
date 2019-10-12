@@ -6,12 +6,11 @@ Telegram::Bot::Client.run(token) do |bot|
   bot.listen do |message|
     case message.text
     when 'start'
-      question = 'Hai, selamat datang di kalorimasakini'
-                 'kalian bisa mendapatkan informasi kalori yang ada pada setiap makanan kalian.' 
-                 'untuk segera mendapatkan infromasi silahkan pilih kategori makanan atau buah'
+      question = 'Hai, selamat datang di kalorimasakini, kalian bisa mendapatkan informasi kalori yang ada pada setiap makanan kalian, untuk segera mendapatkan infromasi silahkan pilih kategori makanan atau buah'
+                  
       answers =
         Telegram::Bot::Types::ReplyKeyboardMarkup
-        .new(keyboard: [%w( Makanan Buah), %w( Info Bantuan )], one_time_keyboard: true)
+        .new(keyboard: [%w( MakananPokok Buah), %w( Info Bantuan )], one_time_keyboard: true)
       bot.api.send_message(chat_id: message.chat.id, text: question, reply_markup: answers)
     
     when 'MakananPokok'
@@ -27,12 +26,18 @@ Telegram::Bot::Client.run(token) do |bot|
         .new(keyboard: [%w( Gizi Diet), %w( Kalori)], one_time_keyboard: true)
         bot.api.send_message(chat_id: message.chat.id, text: question, reply_markup: answers)
     
-    when 'Bantuan'
-      bot.api.send_message(chat_id: message.chat.id, text: "ini bantuan")
-    
+        Konsep diet, terutama untuk mengurangi berat badan, lekat dengan keadaan tersiksa karena Anda harus menahan lapar. Padahal sebenarnya, inti dari diet adalah mengatur kalori yang masuk dan yang keluar. Salah satu caranya adalah dengan mengatur pola makan. Anda mungkin sedang mempertimbangkan untuk mengurangi porsi makan Anda, tapi bagaimana caranya agar Anda tidak merasa tersiksa saat menjalani diet?)
 
+   #keyboard info
+    when 'Gizi'
+      bot.api.send_message(chat_id: message.chat.id, text: "Gizi seimbang adalah susunan makanan sehari–hari yang mengandung zat-zat gizi dalam jenis dan jumlah yang sesuai dengan kebutuhan tubuh, dengan memerhatikan prinsip keanekaragaman atau variasi makanan, aktivitas fisik, kebersihan, dan berat badan (BB) ideal.")
+    when 'Diet'
+      bot.api.send_message(chat_id: message.chat.id, text: "Konsep diet, terutama untuk mengurangi berat badan, lekat dengan keadaan tersiksa karena Anda harus menahan lapar. Padahal sebenarnya, inti dari diet adalah mengatur kalori yang masuk dan yang keluar. Salah satu caranya adalah dengan mengatur pola makan. Anda mungkin sedang mempertimbangkan untuk mengurangi porsi makan Anda, tapi bagaimana caranya agar Anda tidak merasa tersiksa saat menjalani diet? ")
+    when 'Kalori'
+      bot.api.send_message(chat_id: message.chat.id,text: "Menurut kamus medis Medilexicon, kalori adalah satuan unit kandungan panas atau energi. Akan tetapi, lebih tepatnya kalori adalah jumlah energi yang Anda dapatkan dari makanan dan minuman, atau energi yang kita bakar melalui aktivitas sehari-hari. Sederhananya, kalori adalah energi yang dibutuhkan tubuh agar bisa beraktivitas dan menjalankan fungsinya dengan baik.")
 
-    #makanan
+#Hardcode, edamam API belum bisa diakses :((
+   #makanan
     when 'jagung'
       bot.api.send_message(chat_id: message.chat.id, text: "jagung mempunyai kalori sebanyak 90.5 Kalori")
     when 'ketan'
